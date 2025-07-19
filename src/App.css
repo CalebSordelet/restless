@@ -1,0 +1,15 @@
+/* Always show vertical scrollbar */
+.overflow-auto {
+  scrollbar-gutter: stable;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+  background: #e5e7eb; /* Tailwind gray-200 */
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #a3a3a3; /* Tailwind gray-400 */
+  border-radius: 4px;
+}

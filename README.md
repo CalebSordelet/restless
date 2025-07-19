@@ -1,37 +1,49 @@
-# RESTless
+<div align="center">
 
-RESTless is a minimal, fast, and open-source tool for testing REST APIs. Built with React, TypeScript, Vite, and TailwindCSS, it provides a clean, bloat-free interface for developers to interact with APIs—no sign-up, no clutter, just the essentials.
+<pre>
+   ___  ________________          
+  / _ \/ __/ __/_  __/ /__ ___ ___
+ / , _/ _/_\ \  / / / / -_|_-<(_-<
+/_/|_/___/___/ /_/ /_/\__/___/___/
+</pre>
 
----
+<b>Test REST APIs, without the bloat.</b>
 
-## Features
+<a href="https://restlessapp.dev" target="_blank">
+  <strong>🌐 Visit restlessapp.dev</strong>
+</a>
 
-- **Request Builder:**  
-  Easily craft HTTP requests with customizable method, URL, headers, and body.  
+</div>
+
+## Why RESTless?
+
+Minimal, fast, and open-source tool for testing REST APIs.  
+Built with **React**, **TypeScript**, **Vite**, and **TailwindCSS**.  
+No sign-up, no clutter—just the essentials for developers.
+
+## 🚀 Features
+
+- **Request Builder**  
+  Craft HTTP requests with customizable method, URL, headers, and body.  
   Supports GET, POST, PUT, DELETE, PATCH.
 
-- **Request History:**  
+- **Request History**  
   Automatically saves your requests and responses locally.  
   Quickly re-run or inspect previous requests.  
   Clear history with a single click.
 
-- **Response Viewer:**  
+- **Response Viewer**  
   Displays status, headers, and body with pretty/raw toggle.  
   Copy raw headers or body to clipboard with one click.  
   Animated status indicator for new responses.
 
-- **Theme Toggle:**  
-  Switch between light and dark mode instantly.
-
-- **Persistent Storage:**  
+- **Persistent Storage**  
   Request history is saved in localStorage for convenience.
 
-- **Responsive Design:**  
+- **Responsive Design**  
   Works great on desktop and mobile.
 
----
-
-## Getting Started
+## 🛠️ Getting Started
 
 ### Prerequisites
 
@@ -66,9 +78,7 @@ npm run build
 npm run lint
 ```
 
----
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
@@ -83,53 +93,33 @@ src/
   index.css
   main.tsx
   vite-env.d.ts
-Firebase.tsx
 ```
 
-- **App.tsx:** Main layout and state management.
-- **RequestBuilder.tsx:** Form for building and sending requests.
-- **RequestHistory.tsx:** Displays and manages request history.
-- **ResponseViewer.tsx:** Shows response details.
-- **ThemeToggle.tsx:** Light/dark mode switch.
-- **colorUtils.ts:** Utility for coloring status codes.
-
----
-
-## Customization
+## 🎨 Customization
 
 - **Styling:**  
   Uses [TailwindCSS](https://tailwindcss.com/) for rapid UI development.
 - **Animation:**  
   Powered by [Framer Motion](https://www.framer.com/motion/) for smooth transitions.
 
----
-
-## Contributing
+## 🤝 Contributing
 
 Pull requests and issues are welcome!  
 See [GitHub](https://github.com/CalebSordelet/restless) for details.
 
----
-
-## License
+## 📄 License
 
 MIT
 
----
-
-## Support
+## 🍺 Support
 
 If you find RESTless useful, consider [buying me a beer](https://coff.ee/calebsordelet) 🍺
 
----
-
-## Credits
+## 👤 Credits
 
 Created by [Caleb Sordelet](https://github.com/CalebSordelet)
-
----
 
 ## Advanced ESLint Setup
 
 For production, enable type-aware lint rules and React-specific plugins.  
-See the [README template](https://github.com/vitejs/vite-plugin-react) for
+See the [README template](https://github.com/vitejs/vite-plugin-react) for more info.

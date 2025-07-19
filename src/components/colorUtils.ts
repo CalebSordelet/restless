@@ -1,3 +1,15 @@
+/*
+
+RESTless - Minimal REST API client
+Copyright (C) 2025 Caleb Sordelet
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+*/
+
 export function getStatusColor(status: number | string): string {
   const code = typeof status === 'string' ? parseInt(status, 10) : status
   if (isNaN(code)) return 'text-gray-500'

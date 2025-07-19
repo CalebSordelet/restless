@@ -109,7 +109,7 @@ See [GitHub](https://github.com/CalebSordelet/restless) for details.
 
 ## 📄 License
 
-MIT
+GPL-3.0
 
 ## 🍺 Support
 

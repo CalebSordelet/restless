@@ -1,3 +1,15 @@
+/*
+
+RESTless - Minimal REST API client
+Copyright (C) 2025 Caleb Sordelet
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+*/
+
 import type { FormEvent } from 'react'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -16,10 +28,21 @@ type RequestHistoryItem = {
   raw?: string
 }
 
+type ResponseType = {
+  status: number | string
+  statusText: string
+  time: number
+  size: number
+  headers: Record<string, string>
+  body: unknown
+  raw: string
+  responseHeaders?: Record<string, string>
+}
+
 type RequestBuilderProps = {
   value: RequestHistoryItem
   onChange: (value: RequestHistoryItem) => void
-  onSend: (response: any) => void
+  onSend: (response: ResponseType) => void
   onSaveHistory: (updater: (prev: RequestHistoryItem[]) => RequestHistoryItem[]) => void
 }
 
@@ -38,7 +61,7 @@ const RequestBuilder: React.FC<RequestBuilderProps> = ({
     ? Object.entries(value.headers)
     : [['', '']]
 
-  const handleFieldChange = (field: keyof RequestHistoryItem, val: any) => {
+  const handleFieldChange = (field: keyof RequestHistoryItem, val: unknown) => {
     onChange({ ...value, [field]: val })
   }
 
@@ -92,7 +115,7 @@ const RequestBuilder: React.FC<RequestBuilderProps> = ({
         data = text
       }
       const end = performance.now()
-      const response = {
+      const response: ResponseType = {
         status: res.status,
         statusText: res.statusText,
         time: Math.round(end - start),
@@ -100,6 +123,7 @@ const RequestBuilder: React.FC<RequestBuilderProps> = ({
         headers: Object.fromEntries(res.headers.entries()),
         body: data,
         raw: text,
+        responseHeaders: Object.fromEntries(res.headers.entries()),
       }
       onSend(response)
       onSaveHistory(prev => [
@@ -117,10 +141,14 @@ const RequestBuilder: React.FC<RequestBuilderProps> = ({
         },
         ...prev,
       ])
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const message =
+        typeof err === 'object' && err !== null && 'message' in err
+          ? String((err as { message?: unknown }).message)
+          : String(err)
       onSend({
         status: 'Error',
-        statusText: err.message,
+        statusText: message,
         time: 0,
         size: 0,
         headers: {},
@@ -132,7 +160,7 @@ const RequestBuilder: React.FC<RequestBuilderProps> = ({
         {
           ...value,
           status: 'Error',
-          statusText: err.message,
+          statusText: message,
           headers: {},
           responseHeaders: {},
           body: '',
